@@ -1,9 +1,11 @@
 package com.example.droidcafe;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -56,7 +58,29 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.action_status:
-                displayToast(getString(R.string.action_status_message));
+                AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(MainActivity.this);
+                myAlertBuilder.setTitle(R.string.alert_title);
+                myAlertBuilder.setMessage(R.string.alert_message);
+
+                // Add the dialog buttons.
+                myAlertBuilder.setPositiveButton("OK", new
+                        DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // User clicked OK button.
+                                Toast.makeText(getApplicationContext(), getString(R.string.ok_button),
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                myAlertBuilder.setNegativeButton("Cancel", new
+                        DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // User cancelled the dialog.
+                                Toast.makeText(getApplicationContext(), getString(R.string.cancel_button),
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                myAlertBuilder.show();
+                //displayToast(getString(R.string.action_status_message));
                 return true;
             case R.id.action_favorites:
                 displayToast(getString(R.string.action_favorites_message));

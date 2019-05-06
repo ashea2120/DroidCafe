@@ -34,4 +34,8 @@
     <string name="action_favorites_message">You selected Favorites.</string>
     <string name="action_contact_message">You selected Contact.</string>
     <string name="action_order">Order</string>
+    <string name="alert_title">Alert</string>
+    <string name="alert_message">Click OK to continue, or Cancel to stop:</string>
+    <string name="ok_button">Pressed OK</string>
+    <string name="cancel_button">Pressed Cancel</string>
 </resources>
